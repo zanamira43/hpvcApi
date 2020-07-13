@@ -1,19 +1,9 @@
 import os
-import random, string
-# import uuid
 from django.db import models
 from django.dispatch import receiver
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 from django.conf import settings
 
-# def upload_image_file_path(instance, filename):
-#   """Generate file path or new recipe image"""
-#   ext = filename.split('.')[-1]
-#   filename = f"{uuid.uuid4()}.{ext}"
-#   return os.path.join('uploads/orders', filename)
-
-def rand_slug():
-  return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))
   
 class UserManager(BaseUserManager):
   
@@ -61,7 +51,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 class Order(models.Model):
   """Order Model"""
   name = models.CharField(max_length=200, null=True, blank=True)
-  slug = models.CharField(max_length=255, default=rand_slug(), unique=True, blank=True, null=True)
   # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
   quantity = models.IntegerField(default=0)
   rquantity = models.IntegerField(default=0)

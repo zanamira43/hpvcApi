@@ -23,16 +23,15 @@ class OrderListViewSet(generics.ListAPIView):
 class OrderDetailViewSet(generics.RetrieveUpdateDestroyAPIView):
   serializer_class = serializers.OrderSerialzier
   queryset = Order.objects.all()
-  lookup_field = 'slug'
+  
 
 class OrderAcceptedViewSet(generics.RetrieveUpdateAPIView):
   """update orders accepted view"""
   serializer_class = serializers.OrderAcceptedSerializer
   queryset = Order.objects.all()
-  lookup_field = 'slug'
+  
   
 class OrderReceivedViewSet(generics.RetrieveUpdateAPIView):
   """ update orders received view"""
   serializer_class = serializers.OrderRecievedSerializer
   queryset = Order.objects.all()
-  lookup_field = 'slug'
