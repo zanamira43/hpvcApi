@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     # django rest framework app
     'rest_framework',
     'rest_framework.authtoken',
+    
     'corsheaders',
+    'django_extensions',
+    'django_filters',
     
     # local app
     
@@ -49,6 +52,7 @@ INSTALLED_APPS = [
     'user',
     'order',
     'moneytransfer',
+    'products',
     
 ]
 
@@ -100,6 +104,17 @@ DATABASES = {
       # 'PORT': ''
     }
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        "django_filters.rest_framework.DjangoFilterBackend",
+        "rest_framework.filters.SearchFilter",
+        "rest_framework.filters.OrderingFilter",
+    ),
+}
+
+
+
 
 
 # Password validation

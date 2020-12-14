@@ -8,6 +8,7 @@ def api_root(request, format=None):
         'users': reverse('users:me', request=request, format=format),
         'List All orders': reverse('orders:order-list', request=request, format=format),
         'create new order': reverse('orders:image-upload', request=request, format=format),
+        'products': reverse('products:products', request=request, format=format)
     })
 
 

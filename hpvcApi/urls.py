@@ -26,4 +26,5 @@ urlpatterns = [
     path('api/user/', include('user.urls', namespace='users')),
     path('api/orders/', include('order.urls', namespace='orders')),
     path('api/', include('moneytransfer.urls', namespace='transfers')),
+    path('api/', include('products.urls', namespace='products'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
